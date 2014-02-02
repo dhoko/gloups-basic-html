@@ -56,6 +56,7 @@ gulp.task('default',['assets','vendor','partials','styles'], function() {
         gutil.log(gutil.colors.cyan(evt.path), 'changed');
         gulp.run('styles');
         gulp.run('partials');
+        gulp.run('scripts');
       });
     });
 
@@ -72,7 +73,15 @@ gulp.task('styles', function() {
 // Build my css
 gulp.task('assets', function() {
   gulp.src('./src/assets/**/*')
-    .pipe(gulp.dest('./build/assets/')),
+    .pipe(gulp.dest('./build/assets/'))
+    .pipe(livereload(server));
+});
+
+// Build my JavaScript
+gulp.task('scripts', function() {
+  gulp.src('./src/js/**/*')
+    ,pipe(concat("app.js"))
+    .pipe(gulp.dest('./build/js'))
     .pipe(livereload(server));
 });
 
