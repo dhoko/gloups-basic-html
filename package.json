@@ -1,7 +1,7 @@
 {
-  "name": "gloups",
+  "name": "Serval basic HTML webapp",
   "version": "1.0.0",
-  "description": "Webapp boilerplate with Gulp",
+  "description": "Basic HTML Webapp boilerplate with Gulp",
   "main": "index.js",
   "dependencies": {
     "gulp": "*"
@@ -25,9 +25,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "backbone",
+    "html5",
     "boilerplate",
-    "browserify",
     "gulp"
   ],
   "author": "dhoko",
