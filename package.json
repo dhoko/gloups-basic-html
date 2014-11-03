@@ -1,5 +1,5 @@
 {
-  "name": "Serval basic HTML webapp",
+  "name": "serval-html",
   "version": "1.0.0",
   "description": "Basic HTML Webapp boilerplate with Gulp",
   "main": "index.js",
@@ -8,20 +8,20 @@
   },
   "devDependencies": {
     "gulp": "*",
-    "gulp-browserify": "~0.3.3",
     "gulp-concat": "~2.1.7",
     "gulp-rename": "~0.2.2",
     "express": "~3.4.8",
     "gulp-util": "~2.2.12",
-    "tiny-lr": "0.0.5",
+    "tiny-lr": "0.0.7",
     "gulp-open": "~0.2.7",
     "gulp-uncss": "~0.1.6",
     "event-stream": "~3.1.0",
     "gulp-partial-to-script": "~1.0.0",
-    "gulp-livereload": "~0.2.0",
+    "gulp-livereload": "~1.5.0",
     "gulp-file-include" : "*"
   },
   "scripts": {
+    "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

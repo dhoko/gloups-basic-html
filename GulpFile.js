@@ -46,18 +46,10 @@ gulp.task('default',['assets','vendor','partials','styles'], function() {
     server.listen(35729, function (err) {
       if (err) return console.log(err);
 
-      // Watch them all
-      gulp.watch([
-          "./**/*",
-          "!./node_modules/**/*",
-          "!./src/vendor/",
-          "!./build/**/*",
-          "!./GulpFile.js"], function (evt) {
-        gutil.log(gutil.colors.cyan(evt.path), 'changed');
-        gulp.run('styles');
-        gulp.run('partials');
-        gulp.run('scripts');
-      });
+     // Watch them all
+      gulp.watch(['./src/layout/*.html','./src/partials/**/*.html'],['partials']);
+      gulp.watch('./src/scripts/**/*.js',['scripts']);
+      gulp.watch('./src/styles/**/*.css',['styles']);
     });
 
 });
@@ -80,14 +72,16 @@ gulp.task('assets', function() {
 // Build my JavaScript
 gulp.task('scripts', function() {
   gulp.src('./src/js/**/*')
-    ,pipe(concat("app.js"))
+    .pipe(concat("app.js"))
     .pipe(gulp.dest('./build/js'))
     .pipe(livereload(server));
 });
 
 gulp.task('partials', function() {
     gulp.src('./src/partials/**/*.html')
-      .pipe(includes())
+      .pipe(includes({
+        basepath: './src/'
+      }))
       .pipe(gulp.dest('./build'))
       .pipe(livereload(server));
   });
